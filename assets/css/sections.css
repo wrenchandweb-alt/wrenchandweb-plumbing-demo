@@ -1,0 +1,514 @@
+/* ==========================================================================
+   How we work + Service areas
+   ========================================================================== */
+
+/* Shared: heading on the left, intro on the right (like Services) */
+.section-head--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+  align-items: end;
+  gap: 0 3rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.section-head--split .spec-label {
+  grid-column: 1 / -1;
+}
+.section-head--split .section-intro {
+  padding-bottom: 0.4rem;
+}
+.section-foot {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  max-width: 44rem;
+  font-size: 0.875rem;
+  color: var(--steel);
+}
+.tag {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(255, 90, 31, 0.5);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-hot);
+  white-space: nowrap;
+}
+
+/* ---------------- How we work ---------------- */
+.process {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+  background: var(--navy-900);
+  border-top: 1px solid var(--hairline);
+}
+.process__track {
+  --node: 52px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* The pipe the stages sit on: two walls with a centre line */
+.process__track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--node) / 2 - 7px);
+  height: 14px;
+  border-block: 1px solid var(--steel-soft);
+  background: linear-gradient(90deg, rgba(255, 90, 31, 0.55), rgba(255, 90, 31, 0.08) 70%, transparent) center / 100% 1px no-repeat;
+}
+.process__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.process__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  border: 1px solid var(--steel);
+  border-radius: 50%;
+  background: var(--navy-900);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--white);
+  transition: border-color var(--dur-fast) ease, background var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+/* Flange ring around each node */
+.process__node::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px dashed var(--steel-soft);
+  border-radius: 50%;
+}
+.process__step:hover .process__node,
+.process__step:focus-within .process__node {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: var(--navy-900);
+}
+.process__stage {
+  margin-top: 1.6rem;
+}
+.process__title {
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.process__text {
+  margin-top: 0.75rem;
+  color: var(--white-dim);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.process__spec {
+  width: 100%;
+  margin: 1.25rem 0 0;
+  border-top: 1px solid var(--hairline);
+}
+.process__spec div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.process__spec dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+.process__spec dd {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.process__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  margin-top: 0.75rem;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 0.3em;
+}
+.process__link:hover {
+  color: var(--orange-hot);
+}
+
+/* ---------------- Service areas ---------------- */
+.areas {
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+  background: var(--navy-800);
+  border-top: 1px solid var(--hairline);
+}
+.areas__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+.areas__map {
+  margin: 0;
+}
+.areas__caption {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--steel);
+  max-width: 36rem;
+}
+
+/* Schematic */
+.schematic {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-inline: auto;
+  overflow: visible;
+}
+.sch-ticks line {
+  stroke: var(--steel);
+  stroke-width: 1;
+  opacity: 0.55;
+}
+.sch-axis {
+  stroke: var(--steel);
+  stroke-width: 1;
+  stroke-dasharray: 10 6 2 6;
+  opacity: 0.35;
+  fill: none;
+}
+.sch-compass {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--white-dim);
+}
+.sch-ring__band {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 18;
+  opacity: 0.03;
+  transition: opacity var(--dur) var(--ease-out), stroke var(--dur) var(--ease-out);
+}
+.sch-ring__line {
+  fill: none;
+  stroke: var(--steel);
+  stroke-width: 1.4;
+  transition: stroke var(--dur) var(--ease-out);
+}
+.sch-ring[data-zone="3"] .sch-ring__line {
+  stroke-dasharray: 6 5;
+}
+.sch-ring__label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  fill: var(--steel);
+  paint-order: stroke;
+  stroke: var(--navy-800);
+  stroke-width: 5px;
+}
+.sch-core circle:first-child {
+  fill: var(--orange);
+}
+.sch-core__halo {
+  fill: none;
+  stroke: var(--orange);
+  stroke-opacity: 0.5;
+}
+.sch-node circle {
+  fill: var(--navy-800);
+  stroke: var(--white-dim);
+  stroke-width: 1.4;
+  transition: fill var(--dur-fast) ease, stroke var(--dur-fast) ease;
+}
+.sch-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  fill: var(--white-dim);
+  paint-order: stroke;
+  stroke: var(--navy-800);
+  stroke-width: 5px;
+  transition: fill var(--dur-fast) ease, opacity var(--dur-fast) ease;
+}
+.sch-label--core {
+  fill: var(--white);
+}
+.sch-note {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  fill: var(--steel);
+}
+/* Highlighted zone: its ring and places light up, the rest step back */
+.schematic[data-active] .sch-node,
+.schematic[data-active] .sch-ring {
+  opacity: 0.35;
+  transition: opacity var(--dur) var(--ease-out);
+}
+.schematic[data-active="1"] [data-zone="1"],
+.schematic[data-active="2"] [data-zone="2"],
+.schematic[data-active="3"] [data-zone="3"] {
+  opacity: 1;
+}
+.schematic[data-active="1"] [data-zone="1"] .sch-ring__line,
+.schematic[data-active="2"] [data-zone="2"] .sch-ring__line,
+.schematic[data-active="3"] [data-zone="3"] .sch-ring__line {
+  stroke: var(--orange);
+}
+.schematic[data-active="1"] .sch-ring[data-zone="1"] .sch-ring__band,
+.schematic[data-active="2"] .sch-ring[data-zone="2"] .sch-ring__band,
+.schematic[data-active="3"] .sch-ring[data-zone="3"] .sch-ring__band {
+  stroke: var(--orange);
+  opacity: 0.12;
+}
+.schematic[data-active="1"] .sch-node[data-zone="1"] circle,
+.schematic[data-active="2"] .sch-node[data-zone="2"] circle,
+.schematic[data-active="3"] .sch-node[data-zone="3"] circle {
+  fill: var(--orange);
+  stroke: var(--orange);
+}
+.schematic[data-active="1"] .sch-node[data-zone="1"] .sch-label,
+.schematic[data-active="2"] .sch-node[data-zone="2"] .sch-label,
+.schematic[data-active="3"] .sch-node[data-zone="3"] .sch-label {
+  fill: var(--white);
+}
+
+/* Zones list */
+.zones {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--white-dim);
+}
+.zone {
+  border-bottom: 1px solid var(--hairline);
+}
+.zone__toggle {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  min-height: 56px;
+  padding: 1.1rem 0 0.35rem;
+  border: 0;
+  background: none;
+  color: var(--white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.zone__code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--steel);
+  transition: color var(--dur-fast) ease;
+}
+.zone__name {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.zone__hint {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--steel-soft);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  transition: all var(--dur-fast) ease;
+}
+.zone__toggle:hover .zone__code,
+.zone__toggle[aria-pressed="true"] .zone__code {
+  color: var(--orange);
+}
+.zone__toggle:hover .zone__hint {
+  border-color: var(--white-dim);
+  color: var(--white);
+}
+.zone__toggle[aria-pressed="true"] .zone__hint {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: var(--navy-900);
+}
+.zone__toggle[aria-pressed="true"] .zone__hint::after {
+  content: "ed";
+}
+.zone__areas {
+  padding: 0 0 1.1rem 4.25rem;
+  color: var(--white-dim);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Demo coverage checker */
+.checker {
+  margin-top: 2rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px dashed rgba(255, 90, 31, 0.6);
+  border-radius: var(--radius-lg);
+}
+.checker__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+.checker__title {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+.checker .tag--demo {
+  margin-top: 0;
+}
+.checker__intro {
+  margin: 0.75rem 0 1.25rem;
+  font-size: 0.9rem;
+  color: var(--white-dim);
+}
+.checker__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.6rem;
+}
+.checker__form.has-error .field__error {
+  display: block;
+}
+.checker__form .field__error {
+  --error: #ff9580;
+  color: var(--error);
+}
+.checker__form .input[aria-invalid="true"] {
+  border-color: #ff9580;
+}
+.checker__result:not(:empty) {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--orange);
+  background: rgba(255, 90, 31, 0.07);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.checker__nojs {
+  font-size: 0.9rem;
+  color: var(--steel);
+}
+.js .checker__nojs,
+html:not(.js) .checker__form {
+  display: none;
+}
+
+/* ---------------- Responsive ---------------- */
+/* Below 1100px the map gets the full width so its labels stay readable */
+@media (max-width: 1100px) {
+  .areas__layout {
+    grid-template-columns: 1fr;
+  }
+  .areas__side {
+    max-width: 640px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .areas__caption {
+    text-align: center;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 960px) {
+  .section-head--split {
+    grid-template-columns: 1fr;
+  }
+  /* Stages stack down a vertical pipe */
+  .process__track {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    padding-left: calc(var(--node) + 1.25rem);
+  }
+  .process__track::before {
+    top: 0;
+    bottom: 0;
+    left: calc(var(--node) / 2 - 7px);
+    right: auto;
+    width: 14px;
+    height: auto;
+    border-block: 0;
+    border-inline: 1px solid var(--steel-soft);
+    background: linear-gradient(180deg, rgba(255, 90, 31, 0.55), rgba(255, 90, 31, 0.08) 70%, transparent) center / 1px 100% no-repeat;
+  }
+  .process__node {
+    position: absolute;
+    left: calc(-1 * (var(--node) + 1.25rem));
+    top: 0;
+  }
+  .process__stage {
+    margin-top: 0.9rem;
+  }
+  .process__spec {
+    max-width: 30rem;
+  }
+}
+@media (max-width: 560px) {
+  .zone__hint {
+    display: none;
+  }
+  .zone__toggle {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+  }
+  .zone__areas {
+    padding-left: 3.75rem;
+  }
+}
+.section-intro .tag {
+  display: table;
+}
+/* Phones: the schematic shrinks to ~60%. Area names would collide or turn tiny, so the map shows
+   rings and points only; the zone list right below carries the names. */
+@media (max-width: 640px) {
+  .sch-node .sch-label,
+  .sch-label--core,
+  .sch-note {
+    display: none;
+  }
+  .sch-node circle {
+    r: 6px;
+  }
+  .sch-ring__label {
+    font-size: 21px;
+    letter-spacing: 0.04em;
+  }
+  .sch-compass {
+    font-size: 21px;
+  }
+}

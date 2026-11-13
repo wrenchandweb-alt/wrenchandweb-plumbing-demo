@@ -17,8 +17,11 @@ Built: premium responsive navigation (desktop links, mobile full-screen menu, ph
 | `assets/js/quote.js` | Request-a-visit journey: steps, validation, review, demo submit |
 | `assets/css/services.css` | Services spec sheet and shared section headings |
 | `assets/css/quote.css` | Request journey: progress, fields, option cards, errors, review |
+| `assets/css/sections.css` | How we work (pipeline) and Service areas (schematic, zones, demo checker) |
+| `assets/css/footer.css` | Footer: disclaimer, links, safety note, title block |
+| `assets/js/areas.js` | Zone highlighting and the non-functional coverage checker |
 | `assets/fonts/` | Self-hosted Inter and JetBrains Mono (SIL Open Font License; licence files included) |
-| `docs/review/milestone-1/`, `milestone-2/` | Screenshots used for design review |
+| `docs/review/milestone-1/` to `milestone-3/` | Screenshots used for design review |
 
 ### Technology note (deviation from the approved plan)
 
@@ -120,3 +123,33 @@ Before a real client goes live, someone must:
 - Keyboard-only journey (Tab, Space, arrow keys, Enter) with visible focus rings.
 - Reduced motion: step animation off; with motion allowed it runs once.
 - No horizontal scrolling at 961–1440 px or on phones; no JavaScript console errors; typography audit (6 widths) still clean; no-JS shows a message instead of the form.
+
+## Milestone 3 — completing the page
+
+Page order: Hero → 02 Problem finder → 03 Services → 04 How we work → 05 Service areas → 06 Request a visit → Footer. Both menus now link to every section; on 961–1359 px screens the header shows only the core links so it stays on one row.
+
+### How we work
+
+Four stages on a drawn "pipe": describe the problem, request a visit, discuss the proposed work, complete the service. Each stage states "Your part" and "Result". Stage 3 advises asking for the price before work starts — advice, not a promise. A note says the process is illustrative and that no pricing, warranties or terms are offered.
+
+### Service areas
+
+- An engineering-style schematic of Greater Houston: three rings for the I-610 Loop, Beltway 8 and the Grand Parkway, with example neighbourhoods. Marked "Illustrative · fictional company" and "Schematic · not to scale"; the caption says it is not confirmed coverage. No ZIP-code coverage list exists anywhere.
+- Zone buttons (Z-1 to Z-3) highlight a ring and its places; hovering previews on mouse devices.
+- On phones the map shows rings and points only (names would be too small); the zone list underneath gives the names.
+- **Coverage checker** is labelled "Non-functional demo". It only checks that five digits were typed and then explains it isn't connected to any coverage data. It never says an area is covered, and sends/stores nothing.
+
+### Footer
+
+Starts with a "Not a real business" notice: fictional company, cannot be hired, phone number is in the 555-0100 to 555-0199 fictional range and doesn't connect, forms send and store nothing. Then links, the demo phone, a gas safety note, an engineering title block ("Designed & built by WrenchAndWeb") and a copyright line. The footer phone and request link are hidden in gas safety mode; the footer's gas link switches safety mode on.
+
+### Milestone 3 tests (headless Chrome)
+
+- Layout at 1440, 1366, 1280, 1024, 820 (tablet), 768, 390 and 360 px: no horizontal scrolling, header stays one row, no JavaScript errors, no requests to any outside server.
+- Every in-page link has a target; no duplicate IDs; one `h1`, one `main`, one header and footer; headings in order.
+- Desktop and phone menus scroll to each section below the sticky header; phone menu closes after a tap.
+- Zones: click, re-click, switch, keyboard Enter/Space and touch tap all update `aria-pressed` and the map.
+- Checker: empty and invalid entries give an accessible error; letters are stripped; a valid ZIP shows the demo-only message; no network requests, cookies or storage.
+- Safety mode from the footer link: 0 phone links and 0 request links visible; exit restores them.
+- Reduced motion: no animations running after load. Text audit at six widths: nothing under 12 px, no contrast failures.
+- Full Milestone 2 suite re-run: all 17 checks pass.

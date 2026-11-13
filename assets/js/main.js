@@ -141,13 +141,18 @@
       if (gasTile) select(gasTile, { force: true, reveal: true });
       return;
     }
-    // Links to the gas steps: make sure the panel is open and focused
+    // Links to the gas steps: switch on safety mode (if needed) and show the steps
     var gasLink = e.target.closest('a[href="#panel-gas"]');
     if (gasLink && gasPanel) {
       e.preventDefault();
-      showPanel("gas");
-      scrollToEl(gasPanel);
-      gasPanel.focus({ preventScroll: true });
+      var gas = document.querySelector('[data-problem="gas"]');
+      if (!root.classList.contains("is-safety") && gas) {
+        select(gas, { force: true, reveal: true });
+      } else {
+        showPanel("gas");
+        scrollToEl(gasPanel);
+        gasPanel.focus({ preventScroll: true });
+      }
     }
   });
 })();

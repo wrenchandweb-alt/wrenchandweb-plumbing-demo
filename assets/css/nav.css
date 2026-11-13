@@ -111,9 +111,9 @@
 .nav__call {
   white-space: nowrap;
 }
-/* Small laptops: keep one tidy row by showing only the live link */
+/* Small laptops: keep one tidy row by showing only the core links */
 @media (min-width: 961px) and (max-width: 1359px) {
-  .nav__links li:has(.nav__link--soon) {
+  .nav__links .nav__item--wide {
     display: none;
   }
 }
