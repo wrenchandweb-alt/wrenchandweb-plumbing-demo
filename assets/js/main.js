@@ -50,9 +50,11 @@
   }
 
   /* ---------- Problem finder ---------- */
+  var root = document.documentElement;
   var tiles = Array.prototype.slice.call(document.querySelectorAll("[data-problem]"));
   var panels = Array.prototype.slice.call(document.querySelectorAll("[data-panel]"));
   var narrow = window.matchMedia("(max-width: 960px)");
+  var gasPanel = document.getElementById("panel-gas");
 
   function showPanel(key) {
     panels.forEach(function (p) {
@@ -60,7 +62,22 @@
     });
   }
 
-  function select(tile) {
+  /* Gas safety mode: while it's on, every plumbing sales action ([data-sales]) is hidden
+     and the safety controls ([data-safety-only]) are shown instead. See finder.css. */
+  function setSafety(on) {
+    var was = root.classList.contains("is-safety");
+    root.classList.toggle("is-safety", on);
+    if (was !== on) {
+      document.dispatchEvent(new CustomEvent("cv:safety", { detail: { on: on } }));
+    }
+  }
+
+  function scrollToEl(el) {
+    el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+
+  function select(tile, opts) {
+    opts = opts || {};
     var key = tile.getAttribute("data-problem");
     var already = tile.getAttribute("aria-pressed") === "true";
 
@@ -68,22 +85,39 @@
       t.setAttribute("aria-pressed", "false");
     });
 
-    if (already) {
+    if (already && !opts.force) {
       showPanel("empty");
+      setSafety(false);
       return;
     }
 
     tile.setAttribute("aria-pressed", "true");
     showPanel(key);
+    setSafety(key === "gas");
 
-    // On phones the guidance appears below the tiles: bring it into view
-    if (narrow.matches) {
+    // Let the request form pick up the chosen problem (gas is never passed on)
+    if (key !== "gas") {
+      document.dispatchEvent(new CustomEvent("cv:problem", { detail: { key: key, source: "finder" } }));
+    }
+
+    // On phones the guidance appears below the tiles; for gas, always bring the steps into view
+    if (narrow.matches || opts.reveal) {
       var panel = document.querySelector('[data-panel="' + key + '"]');
       if (panel) {
-        panel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        scrollToEl(panel);
         panel.focus({ preventScroll: true });
       }
     }
+  }
+
+  function exitSafety() {
+    var gasTile = document.querySelector('[data-problem="gas"]');
+    if (gasTile) gasTile.setAttribute("aria-pressed", "false");
+    showPanel("empty");
+    setSafety(false);
+    var finder = document.getElementById("finder");
+    if (finder) scrollToEl(finder);
+    if (gasTile) gasTile.focus({ preventScroll: true });
   }
 
   if (tiles.length && panels.length) {
@@ -94,4 +128,26 @@
       });
     });
   }
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest("[data-safety-exit]")) {
+      e.preventDefault();
+      exitSafety();
+      return;
+    }
+    if (e.target.closest("[data-safety-enter]")) {
+      e.preventDefault();
+      var gasTile = document.querySelector('[data-problem="gas"]');
+      if (gasTile) select(gasTile, { force: true, reveal: true });
+      return;
+    }
+    // Links to the gas steps: make sure the panel is open and focused
+    var gasLink = e.target.closest('a[href="#panel-gas"]');
+    if (gasLink && gasPanel) {
+      e.preventDefault();
+      showPanel("gas");
+      scrollToEl(gasPanel);
+      gasPanel.focus({ preventScroll: true });
+    }
+  });
 })();

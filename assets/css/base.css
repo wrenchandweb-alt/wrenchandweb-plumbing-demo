@@ -237,6 +237,51 @@ p {
   cursor: not-allowed;
 }
 
+/* Amber safety button (gas guidance only) */
+.btn--safety {
+  --btn-bg: var(--safety);
+  --btn-fg: var(--navy-900);
+  --btn-border: var(--safety);
+}
+.btn--safety:hover {
+  --btn-bg: #ffc04d;
+  --btn-border: #ffc04d;
+}
+/* Low-emphasis button */
+.btn--quiet {
+  --btn-border: var(--steel-soft);
+  --btn-fg: var(--white-dim);
+}
+/* Button that looks like a text link */
+.link-btn {
+  display: inline;
+  min-height: 0;
+  padding: 0.25rem 0;
+  border: 0;
+  background: none;
+  color: var(--white);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1.5px;
+  cursor: pointer;
+}
+.link-btn:hover {
+  color: var(--orange-hot);
+}
+
+/* ---------- Gas safety mode ----------
+   main.js adds .is-safety to <html> while "I smell gas" is selected.
+   Every plumbing sales action is marked data-sales; safety controls are data-safety-only. */
+html.is-safety [data-sales] {
+  display: none !important;
+}
+html:not(.is-safety) [data-safety-only] {
+  display: none !important;
+}
+
 /* ---------- Demo notice bar ---------- */
 .demo-bar {
   position: relative;

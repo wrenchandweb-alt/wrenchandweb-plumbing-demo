@@ -11,6 +11,7 @@
     <!-- Demo site: keep it out of search results -->
     <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#0a1022" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1022'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23ff5a1f' stroke-width='2' stroke-dasharray='3 3'/%3E%3C/svg%3E" />
 
     <script>
       document.documentElement.classList.add("js");
@@ -23,6 +24,8 @@
     <link rel="stylesheet" href="assets/css/nav.css" />
     <link rel="stylesheet" href="assets/css/hero.css" />
     <link rel="stylesheet" href="assets/css/finder.css" />
+    <link rel="stylesheet" href="assets/css/services.css" />
+    <link rel="stylesheet" href="assets/css/quote.css" />
   </head>
 
   <body>
@@ -62,11 +65,8 @@
         <nav aria-label="Primary">
           <ul class="nav__links">
             <li><a class="nav__link" href="#finder">Problem finder</a></li>
-            <li>
-              <span class="nav__link nav__link--soon" aria-disabled="true"
-                >Services <span class="nav__soon">Soon</span></span
-              >
-            </li>
+            <li><a class="nav__link" href="#services">Services</a></li>
+            <li data-sales><a class="nav__link" href="#request">Request a visit</a></li>
             <li>
               <span class="nav__link nav__link--soon" aria-disabled="true"
                 >Service area <span class="nav__soon">Soon</span></span
@@ -81,7 +81,8 @@
         </nav>
 
         <div class="nav__actions">
-          <a class="btn btn--primary nav__call" href="tel:+17135550142">
+          <a class="nav__safety" href="#panel-gas" data-safety-only>Gas safety steps</a>
+          <a class="btn btn--primary nav__call" href="tel:+17135550142" data-sales>
             <span class="pulse" aria-hidden="true"></span>
             Emergency · (713) 555-0142
           </a>
@@ -108,9 +109,14 @@
           </a>
         </li>
         <li>
-          <span class="mobile-menu__item mobile-menu__item--soon" aria-disabled="true">
-            Services <span class="spec-label">Soon</span>
-          </span>
+          <a class="mobile-menu__item" href="#services" data-menu-link>
+            Services <span class="spec-label">03</span>
+          </a>
+        </li>
+        <li data-sales>
+          <a class="mobile-menu__item" href="#request" data-menu-link>
+            Request a visit <span class="spec-label">04</span>
+          </a>
         </li>
         <li>
           <span class="mobile-menu__item mobile-menu__item--soon" aria-disabled="true">
@@ -124,7 +130,8 @@
         </li>
       </ul>
       <div class="mobile-menu__foot">
-        <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+        <a class="btn btn--primary" href="tel:+17135550142" data-sales>Call (713) 555-0142</a>
+        <a class="btn btn--safety" href="#panel-gas" data-menu-link data-safety-only>Gas safety steps</a>
         <p class="spec-label">Demo number · not a real business</p>
       </div>
     </div>
@@ -153,7 +160,7 @@
               </p>
 
               <div class="hero__ctas hero__fade">
-                <a class="btn btn--primary" href="tel:+17135550142">
+                <a class="btn btn--primary" href="tel:+17135550142" data-sales>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path
                       d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"
@@ -393,11 +400,11 @@
                     </ol>
                   </div>
                 </div>
-                <div class="panel__actions">
+                <div class="panel__actions" data-sales>
                   <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
-                  <span class="btn" aria-disabled="true">Request a visit</span>
+                  <a class="btn" href="#request" data-request="leak">Request a visit</a>
                 </div>
-                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+                <p class="panel__note">Demo number is not connected to a real business.</p>
               </article>
 
               <article class="panel" id="panel-clog" data-panel="clog" tabindex="-1" aria-labelledby="t-clog">
@@ -428,11 +435,11 @@
                     </ol>
                   </div>
                 </div>
-                <div class="panel__actions">
+                <div class="panel__actions" data-sales>
                   <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
-                  <span class="btn" aria-disabled="true">Request a visit</span>
+                  <a class="btn" href="#request" data-request="clog">Request a visit</a>
                 </div>
-                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+                <p class="panel__note">Demo number is not connected to a real business.</p>
               </article>
 
               <article class="panel" id="panel-hot" data-panel="hot" tabindex="-1" aria-labelledby="t-hot">
@@ -461,9 +468,9 @@
                     </ol>
                   </div>
                 </div>
-                <div class="panel__actions">
+                <div class="panel__actions" data-sales>
                   <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
-                  <span class="btn" aria-disabled="true">Request a visit</span>
+                  <a class="btn" href="#request" data-request="hot">Request a visit</a>
                 </div>
                 <p class="panel__note">
                   If you smell gas near the heater, don't touch it — choose "I smell gas" instead.
@@ -502,11 +509,11 @@
                     </ol>
                   </div>
                 </div>
-                <div class="panel__actions">
+                <div class="panel__actions" data-sales>
                   <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
-                  <span class="btn" aria-disabled="true">Request a visit</span>
+                  <a class="btn" href="#request" data-request="pressure">Request a visit</a>
                 </div>
-                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+                <p class="panel__note">Demo number is not connected to a real business.</p>
               </article>
 
               <article class="panel" id="panel-sewer" data-panel="sewer" tabindex="-1" aria-labelledby="t-sewer">
@@ -535,11 +542,11 @@
                     </ol>
                   </div>
                 </div>
-                <div class="panel__actions">
+                <div class="panel__actions" data-sales>
                   <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
-                  <span class="btn" aria-disabled="true">Request a visit</span>
+                  <a class="btn" href="#request" data-request="sewer">Request a visit</a>
                 </div>
-                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+                <p class="panel__note">Demo number is not connected to a real business.</p>
               </article>
 
               <!-- Gas: a safety situation, not a sales enquiry. No call-us or request buttons. -->
@@ -565,7 +572,325 @@
                   A gas smell is an emergency for your gas company or 911 — not a plumbing enquiry. This site doesn't
                   take gas-leak requests.
                 </p>
+                <button class="btn btn--quiet panel__exit" type="button" data-safety-exit>
+                  I chose this by mistake — back to the problem list
+                </button>
               </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Services ===================== -->
+      <section class="services" id="services" aria-labelledby="services-title">
+        <div class="container">
+          <header class="section-head">
+            <p class="spec-label"><strong>03</strong> — Services</p>
+            <h2 class="section-title" id="services-title">Scope<br />of work.</h2>
+            <p class="section-intro">
+              Residential plumbing repairs and installations. Choose a line to start a request with the problem
+              already filled in.
+            </p>
+          </header>
+
+          <div class="spec-sheet">
+            <div class="spec-sheet__head" aria-hidden="true">
+              <span class="spec-label">Ref</span>
+              <span class="spec-label">Service</span>
+              <span class="spec-label">Common signs</span>
+              <span></span>
+            </div>
+            <ol class="spec-sheet__list">
+              <li class="spec-row">
+                <span class="spec-row__ref">S-01</span>
+                <div class="spec-row__main">
+                  <h3 class="spec-row__title">Leaks &amp; pipe repair</h3>
+                  <p class="spec-row__desc">Supply lines, fittings, valves and burst pipes — found, isolated and repaired.</p>
+                </div>
+                <ul class="spec-row__signs" aria-label="Common signs">
+                  <li>Damp walls or ceilings</li>
+                  <li>Water bill rising</li>
+                  <li>Sound of running water</li>
+                </ul>
+                <a class="spec-row__cta" href="#request" data-request="leak" data-sales>
+                  Request <span class="visually-hidden">leak and pipe repair</span><span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="spec-row">
+                <span class="spec-row__ref">S-02</span>
+                <div class="spec-row__main">
+                  <h3 class="spec-row__title">Drain clearing</h3>
+                  <p class="spec-row__desc">Sinks, tubs, showers and floor drains that are slow, blocked or gurgling.</p>
+                </div>
+                <ul class="spec-row__signs" aria-label="Common signs">
+                  <li>Standing water</li>
+                  <li>Gurgling drains</li>
+                  <li>Bad smell from a drain</li>
+                </ul>
+                <a class="spec-row__cta" href="#request" data-request="clog" data-sales>
+                  Request <span class="visually-hidden">drain clearing</span><span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="spec-row">
+                <span class="spec-row__ref">S-03</span>
+                <div class="spec-row__main">
+                  <h3 class="spec-row__title">Water heaters</h3>
+                  <p class="spec-row__desc">Repair and replacement for tank and tankless water heaters.</p>
+                </div>
+                <ul class="spec-row__signs" aria-label="Common signs">
+                  <li>No hot water</li>
+                  <li>Water at the tank base</li>
+                  <li>Rumbling or popping</li>
+                </ul>
+                <a class="spec-row__cta" href="#request" data-request="hot" data-sales>
+                  Request <span class="visually-hidden">water heater service</span><span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="spec-row">
+                <span class="spec-row__ref">S-04</span>
+                <div class="spec-row__main">
+                  <h3 class="spec-row__title">Pressure &amp; supply lines</h3>
+                  <p class="spec-row__desc">Low pressure, pressure regulators, shut-off valves and water lines.</p>
+                </div>
+                <ul class="spec-row__signs" aria-label="Common signs">
+                  <li>Weak flow</li>
+                  <li>Banging pipes</li>
+                  <li>Valve won't close fully</li>
+                </ul>
+                <a class="spec-row__cta" href="#request" data-request="pressure" data-sales>
+                  Request <span class="visually-hidden">pressure and supply line service</span
+                  ><span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="spec-row">
+                <span class="spec-row__ref">S-05</span>
+                <div class="spec-row__main">
+                  <h3 class="spec-row__title">Sewer lines</h3>
+                  <p class="spec-row__desc">Main line blockages, backups and sewer odours inside the home.</p>
+                </div>
+                <ul class="spec-row__signs" aria-label="Common signs">
+                  <li>Several drains slow at once</li>
+                  <li>Sewage odour</li>
+                  <li>Backup in a floor drain</li>
+                </ul>
+                <a class="spec-row__cta" href="#request" data-request="sewer" data-sales>
+                  Request <span class="visually-hidden">sewer line service</span><span aria-hidden="true">→</span>
+                </a>
+              </li>
+              <li class="spec-row">
+                <span class="spec-row__ref">S-06</span>
+                <div class="spec-row__main">
+                  <h3 class="spec-row__title">Fixtures &amp; installs</h3>
+                  <p class="spec-row__desc">Faucets, toilets, garbage disposals and other fixtures — repaired or installed.</p>
+                </div>
+                <ul class="spec-row__signs" aria-label="Common signs">
+                  <li>Dripping tap</li>
+                  <li>Running toilet</li>
+                  <li>Disposal jammed</li>
+                </ul>
+                <a class="spec-row__cta" href="#request" data-request="fixture" data-sales>
+                  Request <span class="visually-hidden">fixture repair or install</span><span aria-hidden="true">→</span>
+                </a>
+              </li>
+            </ol>
+          </div>
+          <p class="services__foot">
+            Not listed? Choose “Something else” in the request form. Gas leaks are not handled through this site —
+            see the gas safety steps in the problem finder.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== Request a visit (demo mode) ===================== -->
+      <section class="quote" id="request" aria-labelledby="quote-title">
+        <div class="container quote__layout">
+          <header class="section-head quote__intro">
+            <p class="spec-label"><strong>04</strong> — Request a visit</p>
+            <h2 class="section-title" id="quote-title">Tell us<br />what's going on.</h2>
+            <p class="section-intro">Four short steps. You'll see everything before you submit.</p>
+
+            <aside class="demo-note" aria-labelledby="demo-note-title">
+              <p class="demo-note__title" id="demo-note-title"><span class="spec-label">Demo mode</span></p>
+              <p>
+                Nothing you enter here is sent, saved or stored. Please use fictional details — the form can fill in
+                test data for you.
+              </p>
+              <p class="demo-note__dev">
+                <strong>Before a real launch:</strong> the business must choose and approve how requests are delivered
+                (for example to its email or CRM), add a privacy notice and spam protection, and test delivery end to
+                end. None of that is connected in this demo, on purpose.
+              </p>
+            </aside>
+          </header>
+
+          <div class="quote__body">
+            <!-- Shown instead of the form while the gas safety steps are active -->
+            <div class="quote__safety" data-safety-only role="note">
+              <p class="spec-label">Form paused</p>
+              <p class="quote__safety-title">Gas smell selected — follow the safety steps first.</p>
+              <p>Leave the building, then call 911 or your gas company from outside. This form doesn't take gas-leak requests.</p>
+              <div class="quote__safety-actions">
+                <a class="btn btn--safety" href="#panel-gas">Show gas safety steps</a>
+                <button class="btn btn--quiet" type="button" data-safety-exit>I chose it by mistake</button>
+              </div>
+            </div>
+
+            <div class="quote__card" data-sales>
+              <p class="quote__nojs">
+                The request form needs JavaScript. You can still call the demo number (713) 555-0142 — it isn't
+                connected to a real business.
+              </p>
+
+              <ol class="qprogress" aria-label="Request progress" data-progress>
+                <li class="qprogress__item" data-progress-step="1" aria-current="step">
+                  <span class="qprogress__num">01</span><span class="qprogress__label">Problem</span>
+                </li>
+                <li class="qprogress__item" data-progress-step="2">
+                  <span class="qprogress__num">02</span><span class="qprogress__label">Details</span>
+                </li>
+                <li class="qprogress__item" data-progress-step="3">
+                  <span class="qprogress__num">03</span><span class="qprogress__label">Contact</span>
+                </li>
+                <li class="qprogress__item" data-progress-step="4">
+                  <span class="qprogress__num">04</span><span class="qprogress__label">Review</span>
+                </li>
+              </ol>
+
+              <form class="quote__form" data-quote novalidate autocomplete="on">
+                <div class="error-summary" data-error-summary tabindex="-1" hidden>
+                  <p class="error-summary__title" data-error-title></p>
+                  <ul data-error-list></ul>
+                </div>
+
+                <!-- Step 1 -->
+                <section class="qstep" data-step="1" aria-labelledby="qs1-title">
+                  <h3 class="qstep__title" id="qs1-title" tabindex="-1">
+                    <span class="qstep__count">Step 1 of 4</span> What's the problem?
+                  </h3>
+                  <p class="carried" data-carried hidden>
+                    <span class="carried__dot" aria-hidden="true"></span>
+                    <span data-carried-text></span>
+                  </p>
+
+                  <fieldset class="field field--group" id="f-problem" aria-describedby="err-problem">
+                    <legend class="field__label">Problem <span class="req">Required</span></legend>
+                    <p class="field__error" id="err-problem" data-error-for="problem"></p>
+                    <div class="options options--grid">
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="leak" /><span class="option__box">Leak or burst pipe</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="clog" /><span class="option__box">Clogged drain</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="hot" /><span class="option__box">No hot water</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="pressure" /><span class="option__box">Low water pressure</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="sewer" /><span class="option__box">Sewer smell or backup</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="fixture" /><span class="option__box">Fixture repair or install</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="problem" value="other" /><span class="option__box">Something else</span></label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="field field--group" id="f-urgency" aria-describedby="err-urgency">
+                    <legend class="field__label">How urgent is it? <span class="req">Required</span></legend>
+                    <p class="field__error" id="err-urgency" data-error-for="urgency"></p>
+                    <div class="options">
+                      <label class="option option--urgency"><input class="option__input" type="radio" name="urgency" value="urgent" /><span class="option__box"><span class="option__meter" data-level="3" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>Urgent</strong> — it's causing damage now</span></span></label>
+                      <label class="option option--urgency"><input class="option__input" type="radio" name="urgency" value="soon" /><span class="option__box"><span class="option__meter" data-level="2" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>Soon</strong> — within the next few days</span></span></label>
+                      <label class="option option--urgency"><input class="option__input" type="radio" name="urgency" value="flexible" /><span class="option__box"><span class="option__meter" data-level="1" aria-hidden="true"><i></i><i></i><i></i></span><span><strong>Flexible</strong> — I'm planning ahead</span></span></label>
+                    </div>
+                    <p class="urgent-tip" data-urgent-tip hidden>
+                      If water is causing damage, turn off the main water valve now. A form isn't the fastest route —
+                      call <a href="tel:+17135550142">(713) 555-0142</a> (demo number, not connected).
+                    </p>
+                  </fieldset>
+
+                  <p class="gas-line">
+                    Smell gas? Don't use this form.
+                    <button class="link-btn" type="button" data-safety-enter>Show gas safety steps</button>
+                  </p>
+                </section>
+
+                <!-- Step 2 -->
+                <section class="qstep" data-step="2" aria-labelledby="qs2-title" hidden>
+                  <h3 class="qstep__title" id="qs2-title" tabindex="-1">
+                    <span class="qstep__count">Step 2 of 4</span> Anything we should know?
+                  </h3>
+                  <div class="field" id="f-description">
+                    <label class="field__label" for="q-description">Describe the problem <span class="opt">Optional</span></label>
+                    <p class="field__hint" id="hint-description">
+                      Where it is, when it started and anything you've tried. Don't include passwords or payment details.
+                    </p>
+                    <p class="field__error" id="err-description" data-error-for="description"></p>
+                    <textarea class="input input--area" id="q-description" name="description" rows="5" maxlength="600" aria-describedby="hint-description count-description err-description"></textarea>
+                    <p class="field__count" id="count-description" data-count>0 of 600 characters</p>
+                  </div>
+                </section>
+
+                <!-- Step 3 -->
+                <section class="qstep" data-step="3" aria-labelledby="qs3-title" hidden>
+                  <h3 class="qstep__title" id="qs3-title" tabindex="-1">
+                    <span class="qstep__count">Step 3 of 4</span> How can we reach you?
+                  </h3>
+                  <button class="link-btn testfill" type="button" data-testfill>Fill with fictional test details</button>
+
+                  <div class="field" id="f-name">
+                    <label class="field__label" for="q-name">Full name <span class="req">Required</span></label>
+                    <p class="field__error" id="err-name" data-error-for="name"></p>
+                    <input class="input" id="q-name" name="name" type="text" autocomplete="name" maxlength="80" aria-describedby="err-name" />
+                  </div>
+
+                  <fieldset class="field field--group" id="f-method" aria-describedby="err-method">
+                    <legend class="field__label">Preferred contact method <span class="req">Required</span></legend>
+                    <p class="field__error" id="err-method" data-error-for="method"></p>
+                    <div class="options options--row">
+                      <label class="option"><input class="option__input" type="radio" name="method" value="call" /><span class="option__box">Phone call</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="method" value="text" /><span class="option__box">Text message</span></label>
+                      <label class="option"><input class="option__input" type="radio" name="method" value="email" /><span class="option__box">Email</span></label>
+                    </div>
+                  </fieldset>
+
+                  <div class="field" id="f-phone">
+                    <label class="field__label" for="q-phone">Phone number <span class="req" data-need="phone">Required for call or text</span></label>
+                    <p class="field__hint" id="hint-phone">US number, for example (713) 555-0199</p>
+                    <p class="field__error" id="err-phone" data-error-for="phone"></p>
+                    <input class="input" id="q-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" maxlength="20" aria-describedby="hint-phone err-phone" />
+                  </div>
+
+                  <div class="field" id="f-email">
+                    <label class="field__label" for="q-email">Email <span class="req" data-need="email">Required for email</span></label>
+                    <p class="field__error" id="err-email" data-error-for="email"></p>
+                    <input class="input" id="q-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" spellcheck="false" aria-describedby="err-email" />
+                  </div>
+                </section>
+
+                <!-- Step 4 -->
+                <section class="qstep" data-step="4" aria-labelledby="qs4-title" hidden>
+                  <h3 class="qstep__title" id="qs4-title" tabindex="-1">
+                    <span class="qstep__count">Step 4 of 4</span> Check your request
+                  </h3>
+                  <dl class="review" data-review></dl>
+                  <p class="review__note">
+                    <span class="spec-label">Demo mode</span> Submitting won't send or save anything. Your answers are
+                    cleared as soon as you submit.
+                  </p>
+                </section>
+
+                <div class="qnav">
+                  <button class="btn btn--quiet" type="button" data-back hidden>
+                    <span aria-hidden="true">←</span> Back
+                  </button>
+                  <button class="btn btn--primary" type="button" data-next>
+                    Continue <span aria-hidden="true">→</span>
+                  </button>
+                  <button class="btn btn--primary" type="submit" data-submit hidden>Submit demo request</button>
+                </div>
+              </form>
+
+              <div class="quote__done" data-done tabindex="-1" hidden>
+                <p class="spec-label">Request complete · demo</p>
+                <p class="quote__done-title">Thanks — that's the whole journey.</p>
+                <p>
+                  Nothing was sent or saved, and your answers have been cleared. On a live site, this is the point
+                  where the business would receive the request through the delivery method it has approved.
+                </p>
+                <button class="btn" type="button" data-restart>Start a new request</button>
+              </div>
             </div>
           </div>
         </div>
@@ -574,10 +899,15 @@
 
     <!-- Phone action bar -->
     <div class="action-bar" role="region" aria-label="Quick actions">
-      <a class="btn btn--primary" href="tel:+17135550142">Call now</a>
-      <a class="btn" href="#finder">Find my problem</a>
+      <a class="btn btn--primary" href="tel:+17135550142" data-sales>Call now</a>
+      <a class="btn" href="#request" data-sales>Request a visit</a>
+      <div class="action-bar__safety" data-safety-only>
+        <a class="btn btn--safety" href="#panel-gas">Gas smell: safety steps</a>
+        <button class="btn btn--quiet" type="button" data-safety-exit>Exit</button>
+      </div>
     </div>
 
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/quote.js" defer></script>
   </body>
 </html>
