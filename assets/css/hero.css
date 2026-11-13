@@ -1,0 +1,326 @@
+/* ==========================================================================
+   Hero — "Pressure, handled."
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(3rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Engineering grid + warm glow behind the drawing */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: linear-gradient(var(--hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 80% 70% at 70% 45%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 45%, #000 20%, transparent 75%);
+  opacity: 0.55;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 60vw;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 900px;
+  right: -12vw;
+  top: -10%;
+  background: radial-gradient(circle, rgba(255, 90, 31, 0.13), transparent 62%);
+  pointer-events: none;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  column-gap: clamp(2rem, 4vw, 4rem);
+}
+/* Headline spans the full width so the oversized type is never clipped */
+.hero__headline {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 1;
+}
+.hero__copy {
+  align-self: start;
+  grid-column: 1;
+  grid-row: 2;
+}
+/* Desktop: the drawing sits behind and beside the headline */
+@media (min-width: 961px) {
+  .hero__headline {
+    grid-row: 1;
+  }
+  .hero__art {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 2rem;
+  }
+}
+
+/* Top spec row */
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+.hero__meta .spec-label::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+  background: var(--orange);
+}
+
+/* Oversized editorial headline */
+.hero__title {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(2.3rem, 9.4vw, 9rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+.hero__title .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+.hero__title .line > span {
+  display: inline-block;
+}
+/* Editorial offset on the second line (wide screens only) */
+@media (min-width: 961px) {
+  .hero__title .line--indent {
+    padding-left: 18%;
+  }
+}
+.hero__title .dot {
+  color: var(--orange);
+}
+.hero__title .outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--white);
+}
+
+.hero__lede {
+  max-width: 34rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--white-dim);
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.hero__note {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--steel);
+}
+
+/* ---- Technical drawing ---- */
+.hero__art {
+  position: relative;
+}
+.hero__art svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.art-pipe-outer {
+  fill: none;
+  stroke: var(--steel);
+  stroke-width: 40;
+  stroke-linecap: butt;
+  opacity: 0.55;
+}
+.art-pipe-inner {
+  fill: none;
+  stroke: var(--navy-800);
+  stroke-width: 37;
+}
+.art-centerline {
+  fill: none;
+  stroke: var(--steel);
+  stroke-width: 1;
+  stroke-dasharray: 10 6 2 6;
+  opacity: 0.6;
+}
+.art-line {
+  fill: none;
+  stroke: var(--steel);
+  stroke-width: 1.4;
+}
+.art-line--thin {
+  stroke-width: 1;
+  opacity: 0.7;
+}
+.art-fill {
+  fill: var(--navy-800);
+  stroke: var(--steel);
+  stroke-width: 1.4;
+}
+.art-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  fill: var(--steel);
+}
+.art-text--hi {
+  fill: var(--white);
+}
+.art-dot {
+  fill: var(--orange);
+}
+.art-streak {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(255, 90, 31, 0.9));
+}
+.art-needle {
+  stroke: var(--orange);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+/* Spec strip under the hero */
+.hero__specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--hairline);
+}
+.hero__spec {
+  padding: 1.25rem 1.25rem 0 0;
+}
+.hero__spec + .hero__spec {
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--hairline);
+}
+.hero__spec dd {
+  margin: 0.4rem 0 0;
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+
+/* ---- Entrance motion (only when the visitor allows motion) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__title .line > span {
+    transform: translateY(105%);
+    animation: rise 0.9s var(--ease-out) forwards;
+  }
+  .js .hero__title .line:nth-child(2) > span {
+    animation-delay: 0.08s;
+  }
+  .js .hero__fade {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.8s var(--ease-out) 0.35s forwards;
+  }
+  /* A single light pulse travels through the pipe, then leaves the drawing */
+  .js .art-streak {
+    stroke-dashoffset: 90;
+    animation: flow 2.4s cubic-bezier(0.55, 0.05, 0.25, 1) 0.5s forwards;
+  }
+  .js .art-streak--riser {
+    animation-name: flow-riser;
+    animation-duration: 1.1s;
+    animation-delay: 1.5s;
+  }
+  .js .art-needle {
+    transform-box: view-box;
+    transform-origin: 452px 168px;
+    transform: rotate(-120deg);
+    animation: needle 1.4s var(--ease-out) 0.9s forwards;
+  }
+}
+/* Static end-state when motion is reduced or JS is off */
+.art-needle {
+  transform-box: view-box;
+  transform-origin: 452px 168px;
+  transform: rotate(-24deg);
+}
+.art-streak {
+  stroke-dasharray: 90 1400;
+  stroke-dashoffset: -330; /* static highlight in the middle of the main line */
+}
+.art-streak--riser {
+  stroke-dasharray: 40 1400;
+  stroke-dashoffset: -60;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -640;
+  }
+}
+@keyframes flow-riser {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: -170;
+  }
+}
+@keyframes needle {
+  to {
+    transform: rotate(-24deg);
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__art {
+    order: 2;
+    max-width: 560px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+@media (max-width: 640px) {
+  .hero__specs {
+    grid-template-columns: 1fr;
+  }
+  .hero__spec,
+  .hero__spec + .hero__spec {
+    padding: 1rem 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero__ctas .btn {
+    flex: 1 1 100%;
+  }
+}

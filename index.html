@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calder &amp; Vane Plumbing Co. (Demo) — Houston plumbing, engineered</title>
+    <meta
+      name="description"
+      content="Demonstration website by WrenchAndWeb. Calder & Vane Plumbing Co. is a fictional Houston plumbing company."
+    />
+    <!-- Demo site: keep it out of search results -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0a1022" />
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+
+    <!-- Headline face: Archivo (wide) from Google Fonts. A self-hosted stand-in is used if it can't load. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800;125,900&display=swap"
+    />
+
+    <link rel="preload" href="assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/nav.css" />
+    <link rel="stylesheet" href="assets/css/hero.css" />
+    <link rel="stylesheet" href="assets/css/finder.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Demo notice -->
+    <div class="demo-bar" role="note">
+      <strong>Demo</strong>Calder &amp; Vane Plumbing Co. is a fictional company created by WrenchAndWeb. Phone numbers
+      and forms are not connected to a real business.
+    </div>
+
+    <!-- ===================== Navigation ===================== -->
+    <header class="site-header" data-header>
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Calder &amp; Vane Plumbing Co., demo, back to top">
+          <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" fill="none" stroke="#8a93a6" stroke-width="1" />
+            <circle cx="20" cy="20" r="15" fill="none" stroke="#ff5a1f" stroke-width="1" stroke-dasharray="2 3" />
+            <text
+              x="20"
+              y="24.5"
+              text-anchor="middle"
+              font-family="JetBrains Mono, monospace"
+              font-size="11"
+              letter-spacing="0.5"
+              fill="#f4f0e8"
+            >
+              C/V
+            </text>
+          </svg>
+          <span class="brand__text">
+            <span class="brand__name">Calder <span class="amp">&amp;</span> Vane</span>
+            <span class="brand__sub">Plumbing Co. · Demo</span>
+          </span>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul class="nav__links">
+            <li><a class="nav__link" href="#finder">Problem finder</a></li>
+            <li>
+              <span class="nav__link nav__link--soon" aria-disabled="true"
+                >Services <span class="nav__soon">Soon</span></span
+              >
+            </li>
+            <li>
+              <span class="nav__link nav__link--soon" aria-disabled="true"
+                >Service area <span class="nav__soon">Soon</span></span
+              >
+            </li>
+            <li>
+              <span class="nav__link nav__link--soon" aria-disabled="true"
+                >How we work <span class="nav__soon">Soon</span></span
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="nav__actions">
+          <a class="btn btn--primary nav__call" href="tel:+17135550142">
+            <span class="pulse" aria-hidden="true"></span>
+            Emergency · (713) 555-0142
+          </a>
+          <button
+            class="nav__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            data-menu-toggle
+          >
+            <span></span><span></span>
+            <span class="visually-hidden">Menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" data-menu aria-hidden="true">
+      <ul class="mobile-menu__list">
+        <li>
+          <a class="mobile-menu__item" href="#finder" data-menu-link>
+            Problem finder <span class="spec-label">01</span>
+          </a>
+        </li>
+        <li>
+          <span class="mobile-menu__item mobile-menu__item--soon" aria-disabled="true">
+            Services <span class="spec-label">Soon</span>
+          </span>
+        </li>
+        <li>
+          <span class="mobile-menu__item mobile-menu__item--soon" aria-disabled="true">
+            Service area <span class="spec-label">Soon</span>
+          </span>
+        </li>
+        <li>
+          <span class="mobile-menu__item mobile-menu__item--soon" aria-disabled="true">
+            How we work <span class="spec-label">Soon</span>
+          </span>
+        </li>
+      </ul>
+      <div class="mobile-menu__foot">
+        <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+        <p class="spec-label">Demo number · not a real business</p>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- ===================== Hero ===================== -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__headline">
+              <div class="hero__meta hero__fade">
+                <span class="spec-label">Houston, TX</span>
+                <span class="spec-label">Spec 01 / Residential plumbing</span>
+              </div>
+
+              <h1 class="hero__title" id="hero-title">
+                <span class="line"><span>Pressure,</span></span>
+                <span class="line line--indent"><span>handled<span class="dot">.</span></span></span>
+              </h1>
+            </div>
+
+            <div class="hero__copy">
+              <p class="hero__lede hero__fade">
+                Leaks, clogs, water heaters and everything in between. Tell us what's happening, get clear advice on
+                what to do first, then call or request a visit.
+              </p>
+
+              <div class="hero__ctas hero__fade">
+                <a class="btn btn--primary" href="tel:+17135550142">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path
+                      d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"
+                    />
+                  </svg>
+                  Call (713) 555-0142
+                </a>
+                <a class="btn" href="#finder">
+                  Find my problem
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 5v14M5 12l7 7 7-7" />
+                  </svg>
+                </a>
+              </div>
+              <p class="hero__note hero__fade">Demo number — calls don't connect to a real business.</p>
+            </div>
+
+            <!-- Technical drawing (decorative) -->
+            <div class="hero__art hero__fade" aria-hidden="true">
+              <svg viewBox="0 0 600 560" role="presentation" focusable="false">
+                <!-- Main supply line, branch down and gauge riser -->
+                <path class="art-pipe-outer" d="M-10 380H610M180 380V570M452 380V228" />
+                <path class="art-pipe-inner" d="M-10 380H610M180 380V570M452 380V228" />
+                <path class="art-centerline" d="M-10 380H610M180 400V570M452 360V228" />
+
+                <!-- Flanges -->
+                <g class="art-fill">
+                  <rect x="96" y="352" width="10" height="56" rx="2" />
+                  <rect x="236" y="352" width="10" height="56" rx="2" />
+                  <rect x="384" y="352" width="10" height="56" rx="2" />
+                  <rect x="530" y="352" width="10" height="56" rx="2" />
+                  <rect x="152" y="476" width="56" height="10" rx="2" />
+                  <rect x="424" y="282" width="56" height="10" rx="2" />
+                </g>
+
+                <!-- Shut-off valve (A) -->
+                <g>
+                  <rect class="art-fill" x="282" y="350" width="60" height="60" rx="10" />
+                  <line class="art-line" x1="312" y1="350" x2="312" y2="306" />
+                  <circle class="art-line" cx="312" cy="290" r="26" />
+                  <line class="art-line art-line--thin" x1="312" y1="264" x2="312" y2="316" />
+                  <line class="art-line art-line--thin" x1="286" y1="290" x2="338" y2="290" />
+                  <circle class="art-fill" cx="312" cy="290" r="5" />
+                </g>
+
+                <!-- Pressure gauge (B) -->
+                <g>
+                  <circle class="art-fill" cx="452" cy="168" r="58" />
+                  <circle class="art-line art-line--thin" cx="452" cy="168" r="50" />
+                  <g class="art-line art-line--thin" transform="translate(452 168)">
+                    <line x1="-38.1" y1="22.0" x2="-30.3" y2="17.5" />
+                    <line x1="-43.8" y1="4.6" x2="-38.8" y2="4.1" />
+                    <line x1="-41.8" y1="-13.6" x2="-37.1" y2="-12.1" />
+                    <line x1="-32.7" y1="-29.4" x2="-29.0" y2="-26.1" />
+                    <line x1="-17.9" y1="-40.2" x2="-15.9" y2="-35.6" />
+                    <line x1="0.0" y1="-44.0" x2="0.0" y2="-35.0" />
+                    <line x1="17.9" y1="-40.2" x2="15.9" y2="-35.6" />
+                    <line x1="32.7" y1="-29.4" x2="29.0" y2="-26.1" />
+                    <line x1="41.8" y1="-13.6" x2="37.1" y2="-12.1" />
+                    <line x1="43.8" y1="4.6" x2="38.8" y2="4.1" />
+                    <line x1="38.1" y1="22.0" x2="30.3" y2="17.5" />
+                  </g>
+                  <path class="art-line" d="M414 196a44 44 0 0 1 76 0" stroke="#ff5a1f" stroke-opacity="0.5" />
+                  <text class="art-text" x="452" y="200" text-anchor="middle">PSI</text>
+                  <line class="art-needle" x1="452" y1="168" x2="452" y2="132" />
+                  <circle class="art-dot" cx="452" cy="168" r="4" />
+                </g>
+
+                <!-- Flow streaks (animate once on load) -->
+                <path class="art-streak" d="M-10 380H610" />
+                <path class="art-streak art-streak--riser" d="M452 380V228" />
+
+                <!-- Callouts -->
+                <g class="art-line art-line--thin">
+                  <path d="M286 290h-14" />
+                  <path d="M394 150H300l-28-28" />
+                  <path d="M60 380v-52h80" />
+                  <path d="M180 520h46" />
+                </g>
+                <circle class="art-dot" cx="286" cy="290" r="3" />
+                <circle class="art-dot" cx="394" cy="150" r="3" />
+                <circle class="art-dot" cx="60" cy="380" r="3" />
+                <circle class="art-dot" cx="180" cy="520" r="3" />
+                <text class="art-text art-text--hi" x="266" y="294" text-anchor="end">A — VALVE</text>
+                <text class="art-text art-text--hi" x="150" y="114">B — PRESSURE GAUGE</text>
+                <text class="art-text art-text--hi" x="66" y="320">C — SUPPLY LINE</text>
+                <text class="art-text art-text--hi" x="232" y="524">D — BRANCH</text>
+
+                <!-- Dimension line -->
+                <g class="art-line art-line--thin">
+                  <path d="M246 456H384M246 448v16M384 448v16" />
+                </g>
+                <text class="art-text" x="315" y="474" text-anchor="middle">SECTION A–A</text>
+                <text class="art-text" x="600" y="552" text-anchor="end">DWG CV-01 · NOT TO SCALE</text>
+              </svg>
+            </div>
+          </div>
+
+          <dl class="hero__specs hero__fade">
+            <div class="hero__spec">
+              <dt class="spec-label">Coverage</dt>
+              <dd>Greater Houston, TX</dd>
+            </div>
+            <div class="hero__spec">
+              <dt class="spec-label">Focus</dt>
+              <dd>Repairs · Drains · Water heaters</dd>
+            </div>
+            <div class="hero__spec">
+              <dt class="spec-label">Status</dt>
+              <dd>Demonstration build — fictional company</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ===================== Problem finder ===================== -->
+      <section class="finder" id="finder" aria-labelledby="finder-title">
+        <div class="container">
+          <header class="finder__head">
+            <p class="spec-label"><strong>02</strong> — Problem finder</p>
+            <h2 class="finder__title" id="finder-title">What's happening<br />at home?</h2>
+            <p class="finder__intro">
+              Pick the closest match. You'll see what it might be, what to do right now and how urgent it is.
+            </p>
+          </header>
+
+          <div class="finder__layout">
+            <div class="finder__options" role="group" aria-label="Choose a plumbing problem">
+              <button class="tile" type="button" aria-pressed="false" aria-controls="panel-leak" data-problem="leak">
+                <span class="tile__num">01</span>
+                <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3c3.5 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.5-6.4 6-11z" />
+                </svg>
+                <span class="tile__title">Leak or burst pipe</span>
+                <span class="tile__desc">Water where it shouldn't be</span>
+              </button>
+
+              <button class="tile" type="button" aria-pressed="false" aria-controls="panel-clog" data-problem="clog">
+                <span class="tile__num">02</span>
+                <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 9h8M7 12h10M8 15h8" />
+                </svg>
+                <span class="tile__title">Clogged drain</span>
+                <span class="tile__desc">Slow, blocked or gurgling</span>
+              </button>
+
+              <button class="tile" type="button" aria-pressed="false" aria-controls="panel-hot" data-problem="hot">
+                <span class="tile__num">03</span>
+                <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M10 14V5a2 2 0 1 1 4 0v9a4 4 0 1 1-4 0z" />
+                  <path d="M4 4l16 16" />
+                </svg>
+                <span class="tile__title">No hot water</span>
+                <span class="tile__desc">Cold, lukewarm or running out</span>
+              </button>
+
+              <button
+                class="tile"
+                type="button"
+                aria-pressed="false"
+                aria-controls="panel-pressure"
+                data-problem="pressure"
+              >
+                <span class="tile__num">04</span>
+                <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 17a8 8 0 1 1 16 0" />
+                  <path d="M12 17l-4.5-4" />
+                </svg>
+                <span class="tile__title">Low water pressure</span>
+                <span class="tile__desc">Weak flow from taps or shower</span>
+              </button>
+
+              <button class="tile" type="button" aria-pressed="false" aria-controls="panel-sewer" data-problem="sewer">
+                <span class="tile__num">05</span>
+                <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 6h10a4 4 0 0 1 4 4v3" />
+                  <path d="M17 16.5c1 1.3 1.6 2.2 1.6 3a1.6 1.6 0 0 1-3.2 0c0-.8.6-1.7 1.6-3z" />
+                  <path d="M3 10h8" />
+                </svg>
+                <span class="tile__title">Sewer smell or backup</span>
+                <span class="tile__desc">Wastewater coming back up</span>
+              </button>
+
+              <button
+                class="tile tile--safety"
+                type="button"
+                aria-pressed="false"
+                aria-controls="panel-gas"
+                data-problem="gas"
+              >
+                <span class="tile__num">06 · Safety</span>
+                <svg class="tile__icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3l10 18H2z" />
+                  <path d="M12 10v5M12 18h.01" />
+                </svg>
+                <span class="tile__title">I smell gas</span>
+                <span class="tile__desc">Rotten-egg or sulfur smell</span>
+              </button>
+            </div>
+
+            <!-- Guidance panels. Without JavaScript they are all shown in order. -->
+            <div class="finder__panels" aria-live="polite">
+              <div class="panel panel--empty" data-panel="empty">
+                <p class="spec-label">Diagnosis</p>
+                <p class="panel__empty-title">Select a problem to see guidance.</p>
+                <p class="panel__note">
+                  Guidance here is general information, not a professional inspection. If you're unsure whether
+                  something is safe, stop and call a licensed plumber.
+                </p>
+              </div>
+
+              <article class="panel" id="panel-leak" data-panel="leak" tabindex="-1" aria-labelledby="t-leak">
+                <p class="spec-label">Diagnosis 01</p>
+                <h3 class="panel__title" id="t-leak">Leak or burst pipe</h3>
+                <div class="meter" data-level="3">
+                  <span class="meter__label spec-label">Urgency</span>
+                  <span class="meter__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="meter__value">Act now</span>
+                </div>
+                <div class="panel__cols">
+                  <div>
+                    <h4 class="spec-label">What it might be</h4>
+                    <ul>
+                      <li>A cracked or burst supply pipe</li>
+                      <li>A failed fitting, valve or connector</li>
+                      <li>A leaking water heater or appliance hose</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="spec-label">Do this now</h4>
+                    <ol>
+                      <li>Turn off your main water shut-off valve.</li>
+                      <li>
+                        Keep away from water near outlets or appliances. Only switch power off at the breaker if you
+                        can reach it from a dry spot.
+                      </li>
+                      <li>Move valuables and take photos for your records.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="panel__actions">
+                  <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+                  <span class="btn" aria-disabled="true">Request a visit</span>
+                </div>
+                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+              </article>
+
+              <article class="panel" id="panel-clog" data-panel="clog" tabindex="-1" aria-labelledby="t-clog">
+                <p class="spec-label">Diagnosis 02</p>
+                <h3 class="panel__title" id="t-clog">Clogged drain</h3>
+                <div class="meter" data-level="2">
+                  <span class="meter__label spec-label">Urgency</span>
+                  <span class="meter__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="meter__value">Soon</span>
+                </div>
+                <div class="panel__cols">
+                  <div>
+                    <h4 class="spec-label">What it might be</h4>
+                    <ul>
+                      <li>Grease, hair or soap build-up</li>
+                      <li>Something that shouldn't have gone down the drain</li>
+                      <li>A blocked main line, if several drains are slow at once</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="spec-label">Do this now</h4>
+                    <ol>
+                      <li>Stop running water into the blocked drain.</li>
+                      <li>Avoid chemical drain cleaners; they can damage pipes and cause burns.</li>
+                      <li>
+                        If several drains are slow or gurgling, stop using water and call: it may be the main line.
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="panel__actions">
+                  <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+                  <span class="btn" aria-disabled="true">Request a visit</span>
+                </div>
+                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+              </article>
+
+              <article class="panel" id="panel-hot" data-panel="hot" tabindex="-1" aria-labelledby="t-hot">
+                <p class="spec-label">Diagnosis 03</p>
+                <h3 class="panel__title" id="t-hot">No hot water</h3>
+                <div class="meter" data-level="2">
+                  <span class="meter__label spec-label">Urgency</span>
+                  <span class="meter__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="meter__value">Soon</span>
+                </div>
+                <div class="panel__cols">
+                  <div>
+                    <h4 class="spec-label">What it might be</h4>
+                    <ul>
+                      <li>A tripped breaker or failed element (electric heaters)</li>
+                      <li>A pilot or ignition problem (gas heaters)</li>
+                      <li>A faulty thermostat or sediment build-up</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="spec-label">Do this now</h4>
+                    <ol>
+                      <li>Check whether every tap is affected, or just one.</li>
+                      <li>Electric heater: check its breaker. Gas heater: only follow the label's instructions.</li>
+                      <li>If the tank is leaking, close the cold-water valve on top of the heater.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="panel__actions">
+                  <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+                  <span class="btn" aria-disabled="true">Request a visit</span>
+                </div>
+                <p class="panel__note">
+                  If you smell gas near the heater, don't touch it — choose "I smell gas" instead.
+                </p>
+              </article>
+
+              <article
+                class="panel"
+                id="panel-pressure"
+                data-panel="pressure"
+                tabindex="-1"
+                aria-labelledby="t-pressure"
+              >
+                <p class="spec-label">Diagnosis 04</p>
+                <h3 class="panel__title" id="t-pressure">Low water pressure</h3>
+                <div class="meter" data-level="1">
+                  <span class="meter__label spec-label">Urgency</span>
+                  <span class="meter__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="meter__value">Routine</span>
+                </div>
+                <div class="panel__cols">
+                  <div>
+                    <h4 class="spec-label">What it might be</h4>
+                    <ul>
+                      <li>A clogged aerator or shower head</li>
+                      <li>A partly closed valve or failing pressure regulator</li>
+                      <li>A hidden leak, or work on the city supply</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="spec-label">Do this now</h4>
+                    <ol>
+                      <li>Check whether it's one fixture or the whole house.</li>
+                      <li>Unscrew and rinse the tap aerator or shower head.</li>
+                      <li>Make sure the main shut-off valve is fully open, and ask a neighbour if theirs is low too.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="panel__actions">
+                  <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+                  <span class="btn" aria-disabled="true">Request a visit</span>
+                </div>
+                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+              </article>
+
+              <article class="panel" id="panel-sewer" data-panel="sewer" tabindex="-1" aria-labelledby="t-sewer">
+                <p class="spec-label">Diagnosis 05</p>
+                <h3 class="panel__title" id="t-sewer">Sewer smell or backup</h3>
+                <div class="meter" data-level="3">
+                  <span class="meter__label spec-label">Urgency</span>
+                  <span class="meter__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="meter__value">Act now</span>
+                </div>
+                <div class="panel__cols">
+                  <div>
+                    <h4 class="spec-label">What it might be</h4>
+                    <ul>
+                      <li>A blocked or damaged main sewer line</li>
+                      <li>Tree roots in the line</li>
+                      <li>An overloaded system after heavy rain</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="spec-label">Do this now</h4>
+                    <ol>
+                      <li>Stop using water. Every flush or shower adds to the backup.</li>
+                      <li>Keep people and pets away; sewage is a health hazard.</li>
+                      <li>Don't use chemical drain cleaners. Open windows for fresh air.</li>
+                    </ol>
+                  </div>
+                </div>
+                <div class="panel__actions">
+                  <a class="btn btn--primary" href="tel:+17135550142">Call (713) 555-0142</a>
+                  <span class="btn" aria-disabled="true">Request a visit</span>
+                </div>
+                <p class="panel__note">Request form arrives in the next build milestone. Demo number is not connected.</p>
+              </article>
+
+              <!-- Gas: a safety situation, not a sales enquiry. No call-us or request buttons. -->
+              <article
+                class="panel panel--safety"
+                id="panel-gas"
+                data-panel="gas"
+                tabindex="-1"
+                aria-labelledby="t-gas"
+                role="alert"
+              >
+                <p class="spec-label">Safety first</p>
+                <h3 class="panel__title" id="t-gas">Leave the building now.</h3>
+                <ol class="safety-steps">
+                  <li>Get everyone out, including pets. Leave the door open behind you.</li>
+                  <li>
+                    Don't switch lights or appliances on or off, light anything, or use a phone while you're inside.
+                  </li>
+                  <li>Once you're well away from the building, call <strong>911</strong> or your gas company's emergency line.</li>
+                  <li>Don't go back inside until the gas company or fire department says it's safe.</li>
+                </ol>
+                <p class="panel__note">
+                  A gas smell is an emergency for your gas company or 911 — not a plumbing enquiry. This site doesn't
+                  take gas-leak requests.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Phone action bar -->
+    <div class="action-bar" role="region" aria-label="Quick actions">
+      <a class="btn btn--primary" href="tel:+17135550142">Call now</a>
+      <a class="btn" href="#finder">Find my problem</a>
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
