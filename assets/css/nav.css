@@ -50,6 +50,16 @@
   font-size: 1.02rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .brand__name {
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+  .brand__sub {
+    letter-spacing: 0.12em;
+  }
 }
 .brand__name .amp {
   color: var(--orange);
@@ -57,8 +67,8 @@
 .brand__sub {
   margin-top: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--steel);
 }
@@ -91,16 +101,26 @@
 }
 .nav__link--soon {
   cursor: default;
-  color: rgba(244, 240, 232, 0.42);
+  color: rgba(244, 240, 232, 0.6);
 }
 .nav__link--soon:hover {
-  color: rgba(244, 240, 232, 0.42);
+  color: rgba(244, 240, 232, 0.6);
   background: none;
+}
+.nav__link,
+.nav__call {
+  white-space: nowrap;
+}
+/* Small laptops: keep one tidy row by showing only the live link */
+@media (min-width: 961px) and (max-width: 1199px) {
+  .nav__links li:has(.nav__link--soon) {
+    display: none;
+  }
 }
 .nav__soon {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--steel);
 }

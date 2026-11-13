@@ -25,11 +25,20 @@
   font-style: normal;
   font-display: swap;
 }
-/* Stand-in for the headline face when Archivo (loaded from Google Fonts) is unavailable */
+/* Headline face: Archivo Expanded (the 125% width of Archivo), self-hosted */
 @font-face {
-  font-family: "CV Display Fallback";
-  src: url("../fonts/inter-display-900.woff") format("woff");
+  font-family: "Archivo";
+  src: url("../fonts/archivo-expanded-800.woff") format("woff");
+  font-weight: 800;
+  font-stretch: 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-expanded-900.woff") format("woff");
   font-weight: 900;
+  font-stretch: 125%;
   font-style: normal;
   font-display: swap;
 }
@@ -60,7 +69,7 @@
   --safety-bg: #2a1d08;
 
   /* Type */
-  --font-display: "Archivo", "CV Display Fallback", "Inter", system-ui, sans-serif;
+  --font-display: "Archivo", "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
@@ -170,8 +179,8 @@ p {
 
 .spec-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--steel);
 }

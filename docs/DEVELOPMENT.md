@@ -23,8 +23,20 @@ The approved stack is **Astro**. Package downloads were blocked in the build env
 
 ### Fonts
 
-- **Inter** (body) and **JetBrains Mono** (spec labels) are self-hosted.
-- **Archivo** (wide headline face) loads from Google Fonts. If it can't load, a self-hosted stand-in (Inter Display Black) is used. Review screenshots in `docs/review/milestone-1/` show the **stand-in**, because Google Fonts was unreachable from the build environment. Archivo is wider, so headlines will look broader in a normal browser.
+All fonts are self-hosted in `assets/fonts/`; the page makes no requests to Google Fonts or any other third party.
+
+- **Archivo Expanded** (headlines, logo) — weights 800 and 900, taken from the official Archivo source repository (github.com/Omnibus-Type/Archivo) and trimmed to Latin characters. Licence: `LICENSE-Archivo-OFL.txt`.
+- **Inter** (body text) — 400, 500, 600.
+- **JetBrains Mono** (spec labels) — 400.
+
+All three are under the SIL Open Font License 1.1, which allows use, bundling and redistribution on websites, including commercial ones; the licence file must stay with the fonts.
+
+### Typography rules
+
+- No visible text below 12 px at any screen width (the "C/V" logo monogram is the only exception).
+- Text contrast meets WCAG AA (4.5:1, or 3:1 for large text), including the greyed-out "Soon" navigation items.
+- The hero headline scales with the screen and was measured to fit from 360 px phones to 1440 px desktops.
+- Drawing labels are hidden on small phones, where they would render below 8 px; the drawing stays as a visual.
 
 ### Demo and honesty rules applied
 
@@ -46,6 +58,14 @@ The approved stack is **Astro**. Package downloads were blocked in the build env
 2. Unzip it (on a Chromebook: open the ZIP in the Files app and copy the folder out).
 3. Double-click `index.html` to open it in Chrome.
 
+### Refinement pass (after design review)
+
+- Archivo bundled locally; Google Fonts request removed.
+- Small labels raised to 12 px minimum; disabled navigation contrast raised from 3.7:1 to AA.
+- Hero drawing moved beside the intro text so it never sits under the headline; empty space cropped; pipe ends fade out; labels enlarged. Motion unchanged (one light pulse and the gauge needle, on load only).
+- Small laptops (961–1199 px): navigation shows only live links so it stays on one row.
+- Logo name kept on one line on phones.
+
 ### Tests run for this milestone (headless Chrome)
 
-Desktop 1440×900, phone 390×844 and reduced-motion renders; tile selection and deselection; only one panel visible at a time; gas panel contains no call or request links; mobile menu opens and closes with Escape; phone panel scrolls into view after selection; keyboard Tab order and Enter selection; no horizontal scrolling; tap targets ≥ 44 px; no JavaScript errors; all panels visible with JavaScript disabled.
+Desktop 1440×900, phone 390×844 and reduced-motion renders; tile selection and deselection; only one panel visible at a time; gas panel contains no call or request links; mobile menu opens and closes with Escape; phone panel scrolls into view after selection; keyboard Tab order and Enter selection; no horizontal scrolling; tap targets ≥ 44 px; no JavaScript errors; all panels visible with JavaScript disabled. Typography audit at 1440, 1280, 1024, 768, 390 and 360 px: Archivo loaded, headline fits, no text under 12 px, no contrast failures, no failed network requests.
